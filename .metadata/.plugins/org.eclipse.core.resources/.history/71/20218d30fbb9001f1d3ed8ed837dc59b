@@ -1,0 +1,26 @@
+package W1D6;
+import java.util.Scanner;
+public class rahulSalary {
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        int numColonies = sc.nextInt();
+	        for (int i=0;i<numColonies;i++) {
+	        	int numBuildings = sc.nextInt();
+	            int earningsPerBuilding = sc.nextInt();
+	            int[] heights = new int[numBuildings];
+	            for (int j=0;j<numBuildings; j++) {
+	                heights[j] = sc.nextInt();
+	            }
+	            int maxHeight = 0; 
+	            int visibleBuildings = 0; 
+	            for (int height : heights) {
+	                if (height > maxHeight) {
+	                    visibleBuildings++;
+	                    maxHeight = height;	                   	                    
+	                }
+	            }
+	            int totalEarnings = visibleBuildings * earningsPerBuilding;
+	            System.out.println(totalEarnings);
+	        }
+	    }
+}

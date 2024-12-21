@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class RahulSalaryCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Read the number of colonies
+        int numColonies = sc.nextInt();
+
+        // Process each colony
+        for (int i = 0; i < numColonies; i++) {
+            // Read number of buildings and earnings per building
+            int numBuildings = sc.nextInt();
+            int earningsPerBuilding = sc.nextInt();
+
+            // Read the heights of the buildings
+            int[] heights = new int[numBuildings];
+            for (int j = 0; j < numBuildings; j++) {
+                heights[j] = sc.nextInt();
+            }
+
+            // Calculate the total earnings for this colony
+            int maxHeight = 0;  // Tracks the tallest building seen so far
+            int visibleBuildings = 0;  // Counts visible buildings
+
+            for (int height : heights) {
+                if (height > maxHeight) {
+                    visibleBuildings++;
+                    maxHeight = height;
+                }
+            }
+
+            // Multiply visible buildings by earnings per building
+            int totalEarnings = visibleBuildings * earningsPerBuilding;
+
+            // Print the result for this colony
+            System.out.println(totalEarnings);
+        }
+
+        sc.close();
+    }
+}
+
